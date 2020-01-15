@@ -36,12 +36,11 @@ import (
 func Proxy(ctx *cli.Context) {
 	// Create a SOCKS5 server
 	fmt.Printf("username: %v, password: %v\n", settings.USERNAME, settings.PASSWORD, )
-	//creds := socks5.StaticCredentials{
-	//	settings.USERNAME: settings.PASSWORD,
-	//}
-	//cator := socks5.UserPassAuthenticator{Credentials: creds}
-	//conf := &socks5.Config{AuthMethods: []socks5.Authenticator{cator},}
-	conf := &socks5.Config{}
+	creds := socks5.StaticCredentials{
+		settings.USERNAME: settings.PASSWORD,
+	}
+	cator := socks5.UserPassAuthenticator{Credentials: creds}
+	conf := &socks5.Config{AuthMethods: []socks5.Authenticator{cator},}
 
 	//conf := &socks5.Config{}
 
