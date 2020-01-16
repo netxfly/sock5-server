@@ -42,7 +42,7 @@ func Proxy(ctx *cli.Context) {
 	cator := socks5.UserPassAuthenticator{Credentials: creds}
 	conf := &socks5.Config{AuthMethods: []socks5.Authenticator{cator},}
 
-	//conf := &socks5.Config{}
+	conf = &socks5.Config{}
 
 	server, err := socks5.New(conf)
 	if err != nil {
